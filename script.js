@@ -36,7 +36,8 @@ form.onsubmit = (e) => {
 // Função para converter a moeda.
 const convertCurrency = (amount, price, symbol) => {
   try {
-    description.textContent = `${symbol} 1 = R$ ${price}`
+    // Exibindo o conteúdo dinamicamente.
+    description.textContent = `${symbol} 1 = R$ ${formatCurrencyBRL(price)}`
 
     // Exibindo o resultado.
     footer.classList.add('show-result')
@@ -46,4 +47,9 @@ const convertCurrency = (amount, price, symbol) => {
     console.log(error)
     alert(('Erro ao converter a moeda.'))
   }
+}
+
+// Função para formatar o valor para o padrão brasileiro.
+const formatCurrencyBRL = (value) => {
+  return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
