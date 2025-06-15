@@ -8,6 +8,7 @@ const form = document.querySelector('form');
 const amount = document.getElementById('amount');
 const currency = document.getElementById('currency');
 const footer = document.querySelector('main footer');
+const result = document.getElementById('result');
 
 // anipulando o input amount para receber apenas números.
 amount.addEventListener("input", () => {
@@ -38,6 +39,9 @@ const convertCurrency = (amount, price, symbol) => {
   try {
     // Exibindo o conteúdo dinamicamente.
     description.textContent = `${symbol} 1 = R$ ${formatCurrencyBRL(price)}`
+
+    let total = amount * price
+    result.textContent = total
 
     // Exibindo o resultado.
     footer.classList.add('show-result')
