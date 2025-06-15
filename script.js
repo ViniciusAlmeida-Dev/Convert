@@ -36,6 +36,8 @@ form.onsubmit = (e) => {
 // Função para converter a moeda.
 const convertCurrency = (amount, price, symbol) => {
   try {
+    description.textContent = `${symbol} 1 = R$ ${price}`
+
     // Exibindo o resultado.
     footer.classList.add('show-result')
   } catch (error) {
